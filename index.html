@@ -10,7 +10,7 @@
     <button id="sum"> Сложение </button>
     <button id="mul"> Умножение </button>
     </br></br>
-    Результат: <span id="result"> 0 </span>
+    <span id="result"> 0 </span>
 <body>
     <article>
         <h1>Ссылки:</h1>
@@ -18,7 +18,22 @@
         <p><a href="https://agile-bayou-61967.herokuapp.com/text"> TXT </a></p>
         <p><a href="https://agile-bayou-61967.herokuapp.com/mp3"> MP3 </a></p>
     </article>
-    
+    <script>{
+            $('#sum').on('click', async e => {
+                let n1 = $('#first').val();
+                let n2 = $('#second').val();
+                const result = await fetch(`http://localhost:80/api/sum/${n1}/${n2}`)
+                    .then(x => x.text());
+                $('#result').text(result);
+            });
+            $('#mul').on('click', async e => {
+                let n1 = $('#first').val();
+                let n2 = $('#second').val();
+                const result = await fetch(`http://localhost:80/api/mul/${n1}/${n2}`)
+                    .then(x => x.text());
+                $('#result').text(result);
+            });
+        }</script>
 
 </body>
 

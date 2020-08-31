@@ -2,7 +2,7 @@ const fs = require('fs');
 const express = require('express');
 const path = require('path');
 const app = express();
-const qs = require('querystring');
+const PORT = process.env.PORT || 4321;
 
 app
  .use('/api', require('./api')(express))
@@ -39,4 +39,4 @@ app
             })
             .sendFile(path.join(__dirname, 'files', 'logoSDO.png'))
         })              
- .listen(80);
+    .listen(PORT);

@@ -4,19 +4,24 @@
     <meta charset="utf-8">
     <script src='https://code.jquery.com/jquery-3.5.1.min.js'></script>
 </head>
+    <center>
     <input id=first size="5" maxlenght="5" value="0"> </input>
     <input id=second size="5" maxlenght="5" value="0"> </input>
     </br></br>
     <button id="sum"> Сложение </button>
-    <button id="mul"> Умножение </button>
+    <button id="mul"> Умножение </button><br><br>
+    <button id="all"> JSON </button>
     </br></br>
     <span id="result"> 0 </span>
+    </center>
 <body>
     <article>
+        <center>
         <h1>Ссылки:</h1>
-        <p><a href="https://agile-bayou-61967.herokuapp.com/pdf"> PDF </a></p>
-        <p><a href="https://agile-bayou-61967.herokuapp.com/text"> TXT </a></p>
-        <p><a href="https://agile-bayou-61967.herokuapp.com/mp3"> MP3 </a></p>
+        <a href="http://localhost:80/pdf"> --PDF--    </a>
+        <a href="http://localhost:80/text"> --TXT--    </a>
+        <a href="http://localhost:80/pic"> --PIC--    </a>
+        <center>
     </article>
     <script>{
             $('#sum').on('click', async e => {
@@ -33,6 +38,14 @@
                     .then(x => x.text());
                 $('#result').text(result);
             });
+           $('#all').on('click', async e => {
+                    let n1 = $('#first').val();
+                    let n2 = $('#second').val();
+                    const result = await fetch(`http://localhost:80/api/all/${n1}/${n2}`, {method: "POST"})
+                        .then(x => x.text());
+                    $('#result').text(result);
+                });
+
         }</script>
 
 </body>

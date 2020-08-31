@@ -18,30 +18,30 @@
     <article>
         <center>
         <h1>Ссылки:</h1>
-        <a href="http://localhost:80/pdf"> --PDF--    </a>
-        <a href="http://localhost:80/text"> --TXT--    </a>
-        <a href="http://localhost:80/pic"> --PIC--    </a>
+        <a href="https://fathomless-anchorage-57285.herokuapp.com/pdf"> --PDF--    </a>
+        <a href="https://fathomless-anchorage-57285.herokuapp.com/text"> --TXT--    </a>
+        <a href="https://fathomless-anchorage-57285.herokuapp.com/pic"> --PIC--    </a>
         <center>
     </article>
     <script>{
             $('#sum').on('click', async e => {
                 let n1 = $('#first').val();
                 let n2 = $('#second').val();
-                const result = await fetch(`http://localhost:80/api/sum/${n1}/${n2}`)
+                const result = await fetch(`https://fathomless-anchorage-57285.herokuapp.com/api/sum/${n1}/${n2}`)
                     .then(x => x.text());
                 $('#result').text(result);
             });
             $('#mul').on('click', async e => {
                 let n1 = $('#first').val();
                 let n2 = $('#second').val();
-                const result = await fetch(`http://localhost:80/api/mul/${n1}/${n2}`)
+                const result = await fetch(`https://fathomless-anchorage-57285.herokuapp.com/api/mul/${n1}/${n2}`)
                     .then(x => x.text());
                 $('#result').text(result);
             });
            $('#all').on('click', async e => {
                     let n1 = $('#first').val();
                     let n2 = $('#second').val();
-                    const result = await fetch(`http://localhost:80/api/all/${n1}/${n2}`, {method: "POST"})
+                    const result = await fetch(`https://fathomless-anchorage-57285.herokuapp.com/api/all/${n1}/${n2}`, {method: "POST"})
                         .then(x => x.text());
                     $('#result').text(result);
                 });
